@@ -1,0 +1,203 @@
+﻿html, body {
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+    margin: 0;
+    padding: 3px;
+    height: 100vh;
+    background-color: #222222;
+    background-image: url("/css/prijava.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+    height: 130px;
+    width: 270px;
+    padding: 20px;
+    text-align: center;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 1px #f46425;
+    font-size: 34px;
+    color: #c2e1fe;
+    box-shadow: 5px 5px 7px #f46425;
+    border: 1px solid #f46425;
+    border-radius: 10px;
+    text-transform: uppercase;
+    float: right;
+    margin-right: 27%;
+    margin-top: 50px;
+}
+
+h1:hover, h1:focus {
+    animation: glow 800ms ease-out infinite alternate;
+    background: #001d4a;
+    color: #c2e1fe;
+    outline: none;
+}
+
+@keyframes glow {
+    0% {
+        border-color: #f3530d;
+        box-shadow: 0 0 6px rgba(0, 255, 0, 0.2), inset 0 0 6px rgba(0, 255, 0, 0.1), 0 3px 0 rgb(0, 0, 0);
+    }
+
+    100% {
+        border-color: #dc4a0b;
+        box-shadow: 0 0 25px rgba(0, 255, 0, 0.6), inset 0 0 15px rgba(0, 255, 0, 0.4), 0 5px 0 rgb(0, 0, 0);
+    }
+}
+
+.prijava {
+    width: 300px;
+    padding: 40px;
+    background: #222222;
+    background: repeating-linear-gradient(45deg, #2b2b2b 0%, #2b2b2b 10%, #222222 50%);
+    opacity: 0.4;
+    border: 1px solid rgb(44,44,43);
+    border-radius: 10px;
+    box-shadow: -5px -5px 5px rgba(255, 255, 255, 0.1), 10px 10px 10px rgba(0, 0, 0, 0.7), 15px 15px 15px rgba(0, 0, 0, 0.7), 20px 20px 20px rgba(0, 0, 0, 0.7);
+    margin-left: 7%;
+    margin-top: 11%;
+    text-align: center;
+}
+
+.prijava:hover {
+    opacity: 1.0;
+}
+
+.prijava h2 {
+    color: aliceblue;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 26px;
+}
+
+.txtBoxUser {
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+    border: 2px solid #3498db;
+    background: #222;
+    background: linear-gradient(#333, #222);
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    box-shadow: 0 2px 0 #000;
+    color: lightcyan;
+    padding: 14px 10px;
+    width: 200px;
+    height: 30px;
+    outline: none;
+    font-size: 18px;
+    font-weight: 400;
+    text-shadow: 0 -1px 0 #000;
+    border-radius: 50px;
+    transition: 0.25s;
+    cursor: pointer;
+}
+
+#txtKorIme:focus {
+    width: 280px;
+    animation: glow 800ms ease-out infinite alternate;
+    background: #222922;
+    background: linear-gradient(#333933, #222922);
+    border-color: #393;
+    box-shadow: 0 0 5px rgba(0, 255, 0, 0.2), inset 0 0 5px rgba(0, 255, 0, 0.1), 0 2px 0 rgb(0, 0, 0);
+    color: #efe;
+    outline: none;
+}
+
+#lblKorisnik {
+    font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+    text-align: center;
+}
+
+.txtBoxPass {
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+    border: 2px solid #3498db;
+    background: #222;
+    background: linear-gradient(#333, #222);
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    box-shadow: 0 2px 0 #000;
+    color: lightcyan;
+    padding: 14px 10px;
+    width: 200px;
+    height: 30px;
+    outline: none;
+    font-size: 18px;
+    font-weight: 400;
+    text-shadow: 0 -1px 0 #000;
+    border-radius: 50px;
+    transition: 0.25s;
+    cursor: pointer;
+}
+
+#txtLozinka:focus {
+    width: 280px;
+    animation: glow 800ms ease-out infinite alternate;
+    background: #222922;
+    background: linear-gradient(#333933, #222922);
+    border-color: #393;
+    box-shadow: 0 0 5px rgba(0, 255, 0, 0.2), inset 0 0 5px rgba(0, 255, 0, 0.1), 0 2px 0 rgb(0, 0, 0);
+    color: #efe;
+    outline: none;
+}
+
+#lblLozinka {
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+    text-align: center;
+}
+
+#btnPrijava {
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+    background: #222;
+    background: linear-gradient(#333, #222);
+    box-sizing: border-box;
+    border: 2px solid #2ecc71;
+    box-shadow: 0 2px 0 #000;
+    color: #efe;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    font-size: 18px;
+    padding: 14px 40px;
+    outline: none;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+}
+
+#btnPrijava:hover, #btnPrijava:focus {
+    animation: glow 800ms ease-out infinite alternate;
+    background: #292929;
+    background: linear-gradient(#393939, #292929);
+    color: #5f5;
+    outline: none;
+}
+
+@keyframes glow {
+    0% {
+        border-color: #393;
+        box-shadow: 0 0 5px rgba(0, 255, 0, 0.2), inset 0 0 5px rgba(0, 255, 0, 0.1), 0 2px 0 rgb(0, 0, 0);
+    }
+
+    100% {
+        border-color: #6f6;
+        box-shadow: 0 0 20px rgba(0, 255, 0, 0.6), inset 0 0 10px rgba(0, 255, 0, 0.4), 0 2px 0 rgb(0, 0, 0);
+    }
+}
+
+.footer {
+    font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+    text-align: center;
+    font-size: 14px;
+    background-color: #222222;
+    padding: 5px;
+    height: 40px;
+    width: 100%;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
