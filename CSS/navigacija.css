@@ -1,0 +1,63 @@
+﻿* {
+    box-sizing: border-box;
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+}
+
+body {
+    background-image: url('/css/navigacija.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    color: #666;
+    font-size: 16px;
+    margin: 0;
+}
+
+.odabir {
+    border: 2px solid #e68210;
+    box-shadow: 2px 2px 2px #e68210;
+    text-align: center;
+    width: 15%;
+    height: 20%;
+    padding: 60px;
+    margin: auto;
+    position: relative;
+    top: 300px;
+    color: black;
+    font-size: 25px;
+    font-weight: bold;
+    border-radius: 20px;
+}
+
+#btnUlazak {
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+    background: #222;
+    background: linear-gradient(#333, #222);
+    box-sizing: border-box;
+    border: 2px solid #e68210;
+    box-shadow: 0 2px 0 #000;
+    color: white;
+    display: inline-block;
+    margin: 15px auto;
+    text-align: center;
+    font-size: 18px;
+    padding: 14px 40px;
+    outline: none;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+}
+
+.footer {
+    font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+    text-align: center;
+    font-size: 14px;
+    background-color: #222222;
+    padding: 5px;
+    height: 40px;
+    width: 100%;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
