@@ -1,0 +1,265 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    color: #aaaaaa;
+}
+
+a:link {
+    text-decoration: none;
+    color: #7799bb;
+}
+
+a:visited {
+    text-decoration: none;
+    color: #557799;
+}
+
+a:hover, a:active {
+    color: #dd5555;
+}
+
+h1, h2 {
+    font-weight: normal;
+    margin: 0;
+    padding: 10px 0;
+    color: #779955;
+}
+
+h1 {
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+    font-size: 34px;
+    color: white;
+}
+
+h2 {
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+    font-size: 28px;
+    color: white;
+    margin-left: 50px;
+}
+
+ul {
+    color: #999999;
+    margin: 10px 35px;
+    padding: 10px 30px;
+    line-height: 1.6em;
+    border: 1px solid #1a1a1a;
+    border-top: 10px solid #151515;
+    background: #404040 top left repeat;
+}
+
+ul {
+    list-style-type: square;
+}
+
+body {
+    margin: 0;
+    width: 100%;
+    background-image: url("/css/index.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.header {
+    float: left;
+    width: 100%;
+    clear: both;
+    border-top: 10px solid #111111;
+    background: #222222 top left repeat;
+}
+
+.navbar {
+    float: left;
+    width: 100%;
+    color: #333333;
+    border-bottom: 5px solid #222222;
+    background: #557799;
+}
+
+.wrapper {
+    float: left;
+    width: 100%;
+    margin: 10px 0;
+    background: transparent 60% 0 repeat-y;
+}
+
+.content-wrapper {
+    width: 100%;
+    float: left;
+}
+
+.content {
+    padding: 0 20px;
+}
+
+.header h1 {
+    padding: 20px;
+}
+
+.navbar ul {
+    float: left;
+    list-style-type: none;
+    margin: 0;
+    background: none;
+    border-width: 0;
+}
+
+.navbar li {
+    float: left;
+    border-right: 2px solid black;
+}
+
+    .navbar li:last-child {
+        border-right: none;
+    }
+
+.navbar a {
+    float: left;
+    display: block;
+    padding: 5px 10px;
+}
+
+.navbar a:link, .navbar a:visited {
+    color: #002244;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 19px;
+    padding: 10px;
+}
+
+.navbar a:hover, .navbar a:active {
+    color: yellow;
+}
+
+#podaci {
+    padding: 10px;
+    width: 70vw;
+    height: 60vh;
+    text-align: center;
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+    font-size: 20px;
+    background-color: #333333;
+    color: white;
+}
+
+.objava {
+    display: block;
+}
+
+#lblNaziv, #lblKolicina, #lblOpis {
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+    border: 2px solid #3498db;
+    background: #222;
+    background: linear-gradient(#333, #222);
+    display: inline-block;
+    margin: 20px auto;
+    text-align: center;
+    box-shadow: 0 2px 0 #000;
+    color: lightcyan;
+    padding: 14px 40px;
+    width: 20%;
+    outline: none;
+    font-size: 18px;
+    font-weight: 400;
+    text-shadow: 0 -1px 0 #000;
+    border-radius: 50px;
+    transition: 0.25s;
+    cursor: pointer;
+}
+
+#lblExp, #lblRec {
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+    border: 2px solid #3498db;
+    background: #222;
+    background: linear-gradient(#333, #222);
+    display: inline-block;
+    margin: 20px auto;
+    text-align: center;
+    box-shadow: 0 2px 0 #000;
+    color: lightcyan;
+    padding: 14px 40px;
+    width: 20%;
+    outline: none;
+    font-size: 18px;
+    font-weight: 400;
+    text-shadow: 0 -1px 0 #000;
+    border-radius: 50px;
+    transition: 0.25s;
+    cursor: pointer;
+}
+
+#txtNaziv, #txtKolicina, #txtOpis {
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+    border: 2px solid #3498db;
+    background: #222;
+    background: linear-gradient(#333, #222);
+    display: inline-block;
+    margin: 20px auto;
+    text-align: center;
+    box-shadow: 0 2px 0 #000;
+    color: lightcyan;
+    padding: 14px 40px;
+    width: 40%;
+    outline: none;
+    font-size: 18px;
+    font-weight: 400;
+    text-shadow: 0 -1px 0 #000;
+    border-radius: 50px;
+    transition: 0.25s;
+    cursor: pointer;
+}
+
+#dateExp, #dateRec {
+    width: 400px;
+    height: 300px;
+}
+
+.trajanje {
+    display: inline-block;
+}
+
+.zaprimanje {
+    display: inline-block;
+}
+
+#btnPohrani, #btnModify, #btnDelete, #btnOcisti {
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+    background: #222;
+    background: linear-gradient(#333, #222);
+    box-sizing: border-box;
+    border: 2px solid #2ecc71;
+    box-shadow: 0 2px 0 #000;
+    color: #efe;
+    display: inline-block;
+    margin: 20px auto;
+    text-align: center;
+    font-size: 18px;
+    padding: 14px 40px;
+    outline: none;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+}
+
+#NoviUnos {
+    position: relative;
+    left: 20%;
+}
+
+.footer {
+    font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+    text-align: center;
+    font-size: 14px;
+    background-color: #222222;
+    padding: 5px;
+    height: 40px;
+    width: 100%;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
