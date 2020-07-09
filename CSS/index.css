@@ -228,6 +228,27 @@ body {
     cursor: pointer;
 }
 
+.calendar {
+    float: right;
+    position: relative;
+    top: -600px;
+    right: 100px;
+}
+
+#calendar {
+    width: 400px;
+    height: 300px;
+}
+
+#txtObavDatum {
+    width: 17vw;
+    height: 10vh;
+    padding: 5px;
+    border-radius: 24px;
+    font-size: 16px;
+    font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+}
+
 .footer {
     font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
     text-align: center;
