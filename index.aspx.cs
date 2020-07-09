@@ -1,6 +1,7 @@
 ﻿using APPEK2.DB;
 using APPEK2.Models;
 using Microsoft.OData.Edm;
+using MySqlX.XDevAPI.Relational;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -34,13 +35,13 @@ namespace APPEK2
                 Unos.Visible = false;
                 register.Visible = false;
             }
-                
 
             podaci.HeaderRow.Cells[0].Text = "Označi";
             podaci.HeaderRow.Cells[1].Text = "ID obavijesti";
             podaci.HeaderRow.Cells[2].Text = "Obavijest";
-            podaci.HeaderRow.Cells[3].Text = "ID korisnika";
-            podaci.HeaderRow.Cells[4].Text = "Ime i prezime";
+            podaci.HeaderRow.Cells[3].Text = "Datum";
+            podaci.HeaderRow.Cells[4].Text = "ID korisnika";
+            podaci.HeaderRow.Cells[5].Text = "Korisnik";
         }
 
         protected void Page_PreRender(object sender, EventArgs e)
@@ -52,7 +53,7 @@ namespace APPEK2
         {
             DBConnect connect = new DBConnect();
 
-            MySqlDataReader imePre = connect.Select("SELECT ime, prezime FROM Prijava where ID_prijava = "+serial);
+            MySqlDataReader imePre = connect.Select("SELECT ime, prezime FROM Prijava where ID_prijava = " + serial);
 
             string naziv;
             if (imePre.Read())
@@ -76,7 +77,7 @@ namespace APPEK2
                 dashboard = new Dashboard();
                 dashboard.IdDeshBoard = int.Parse(data["ID_dashboard"].ToString());
                 dashboard.Note = data["note"].ToString();
-                dashboard.Date = Date.Parse(data["date"].ToString());
+                dashboard.Date = DateTime.Parse(data["date"].ToString());
                 dashboard.IdPrijava = int.Parse(data["ID_prijava"].ToString());
                 dashboard.ImeIpre = DohvatiIme(dashboard.IdPrijava);
 
@@ -91,8 +92,8 @@ namespace APPEK2
         {
             dbConnect.Insert(String.Format("INSERT INTO Dashboard (note, date, ID_prijava) " +
                                            "VALUES ('{0}', '{1}', {2})",
-                                           txtObavijest.Text.Trim(), 
-                                           Date.Now,
+                                           txtObavijest.Text.Trim(),
+                                           FormatDateForMySQL(DateTime.Now),
                                            korisnik.IdKorisnik));
 
             Response.Redirect("index.aspx", false);
@@ -102,7 +103,7 @@ namespace APPEK2
         {
             string id2 = Session["idObavijesti"].ToString();
 
-            dbConnect.Delete("DELETE FROM Dashboard WHERE ID_dashboard = "+id2);
+            dbConnect.Delete("DELETE FROM Dashboard WHERE ID_dashboard = " + id2);
 
             Response.Redirect("index.aspx", false);
         }
@@ -127,6 +128,34 @@ namespace APPEK2
             txtObavijest.Text = listBoard[id].Note;
 
             Session["idObavijesti"] = listBoard[id].IdDeshBoard;
+        }
+
+        private string FormatDateForMySQL(DateTime input)
+        {
+            string output = "";
+
+            output += input.Year + "-";
+            output += input.Month + "-";
+            output += input.Day;
+
+            return output;
+        }
+
+        protected void kalendar_SelectionChanged(object sender, EventArgs e)
+        {
+            DateTime date = kalendar.SelectedDate;
+            Session["datum"] = date;
+            listBoard = podaci_GetData().ToList<Dashboard>();
+            string obavijest = "";
+
+            foreach (Dashboard dashboard in listBoard)
+                if (dashboard.Date.Equals(date))
+                    obavijest += dashboard.ImeIpre + ": " + dashboard.Note + "\n";
+
+            if (!obavijest.Equals(String.Empty))
+                txtObavDatum.Text = obavijest;
+            else
+                txtObavDatum.Text = "Nije pronađena obavijest pod tim datumom.";
         }
     }
 }

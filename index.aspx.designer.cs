@@ -58,6 +58,24 @@ namespace APPEK2 {
         protected global::System.Web.UI.WebControls.GridView podaci;
         
         /// <summary>
+        /// kalendar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar kalendar;
+        
+        /// <summary>
+        /// txtObavDatum control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtObavDatum;
+        
+        /// <summary>
         /// Unos control.
         /// </summary>
         /// <remarks>

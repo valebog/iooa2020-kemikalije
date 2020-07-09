@@ -16,6 +16,7 @@
 		<ul>
 			<li class="naslovna"><a href="index.aspx"> Naslovna </a></li>
 			<li class="kemikalije"><a href="#01"> Skladište </a></li>
+            <li class="laboratorij"><a href="#02"> Laboratorij </a></li>
 			<li id="register" class="registracija" runat="server"><a href="registracija.aspx"> Registracija </a></li>
 			<li class="odjava"><a href="#02"> Odjava </a></li>
 		</ul>
@@ -39,6 +40,13 @@
                             forecolor="DarkBlue"
                             font-bold="true"/>
                             </asp:GridView> 
+
+                            <div class="calendar">
+                                <asp:Calendar ID="kalendar" runat="server" OnSelectionChanged="kalendar_SelectionChanged" BorderWidth="1px"
+                                    ForeColor="#663399" Font-Names="Century Gothic" Font-Size="16pt"></asp:Calendar> <br />
+                                <asp:TextBox ID="txtObavDatum" runat="server" TextMode="MultiLine"></asp:TextBox>
+                            </div>
+
                         </asp:Panel>
                             <br />
                             <br />
