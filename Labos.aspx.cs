@@ -126,18 +126,55 @@ namespace APPEK2
                 MessageBox.Show("U labosu nema dovoljno resursa!");
 
             else
-                dbConnect.Update(String.Format("UPDATE {0} SET quantity = {1} WHERE ID_chemical = {2}", Session["odabraniLab"].ToString(), novoStanje, Session["idChem"]));
-            
-            Response.Redirect("Labos.aspx", false);
+            {
+                DBConnect chemName = new DBConnect();
+                MySqlDataReader kemikalija = chemName.Select("SELECT chemName FROM Skladiste WHERE ID_chemical = " + int.Parse(Session["idChem"].ToString()));
+
+                if (kemikalija.Read())
+                {
+                    dbConnect.Update(String.Format("UPDATE {0} SET quantity = {1} WHERE ID_chemical = {2}", Session["odabraniLab"].ToString(), novoStanje, int.Parse(Session["idChem"].ToString())));
+                    dbConnect.Insert(String.Format("INSERT INTO Dashboard (note, date, ID_prijava) VALUES ('{0} je uzeo/la {1} kom. {2} iz {3}', '{4}', {5})",
+                                                    korisnik.Ime + " " + korisnik.Prezime,
+                                                    int.Parse(Session["quantity"].ToString()),
+                                                    kemikalija["chemName"].ToString(),
+                                                    Session["odabraniLab"].ToString(),
+                                                    FormatDateForMySQL(DateTime.Now),
+                                                    korisnik.IdKorisnik));
+                }
+
+                chemName.CloseConnection();
+                Response.Redirect("Labos.aspx", false);
+            }
         }
 
         protected void btnDodaj_Click(object sender, EventArgs e)
         {
             int novoStanje = int.Parse(Session["quantity"].ToString()) + int.Parse(txtKom.Text);
 
-            dbConnect.Update(String.Format("UPDATE {0} SET quantity = {1} WHERE ID_chemical = {2}", Session["odabraniLab"].ToString(), novoStanje, Session["idChem"]));
-            
-            MessageBox.Show("zalihe labosa su obnovljene!");
+
+            MySqlDataReader provjeriSkladiste = dbConnect.Select(String.Format("SELECT * FROM Skladiste where ID_chemical = {0} ", int.Parse(Session["idChem"].ToString())));
+
+            if(provjeriSkladiste.Read())
+                if (int.Parse(txtKom.Text) > int.Parse(provjeriSkladiste["quantity"].ToString()))
+                    MessageBox.Show("U skladištu nema dovoljno zaliha!");
+
+                else
+                {
+                    int novoStanjeSkaldiste = int.Parse(provjeriSkladiste["quantity"].ToString()) - int.Parse(txtKom.Text);
+                    DBConnect connect = new DBConnect();
+                    connect.Update(String.Format("UPDATE {0} SET quantity = {1} WHERE ID_chemical = {2}", Session["odabraniLab"].ToString(), novoStanje, int.Parse(Session["idChem"].ToString())));
+                    connect.Update(String.Format("UPDATE Skladiste SET quantity = {0} WHERE ID_chemical = {1}", 
+                                                  novoStanjeSkaldiste,
+                                                  int.Parse(Session["idChem"].ToString())));
+                    connect.Insert(String.Format("INSERT INTO Dashboard (note, date, ID_prijava) VALUES ('Dodano je novih {0} kom. {1} u {2}', '{3}', {4})",
+                                                    Session["quantity"].ToString(),
+                                                    provjeriSkladiste["chemName"].ToString(),
+                                                    Session["odabraniLab"].ToString(),
+                                                    FormatDateForMySQL(DateTime.Now),
+                                                    korisnik.IdKorisnik));
+                    MessageBox.Show("Zalihe laboratorija su obnovljene!");
+                    dbConnect.CloseConnection();
+                }
 
             Response.Redirect("Labos.aspx", false);
         }
@@ -182,6 +219,7 @@ namespace APPEK2
             int idChemSkl = int.Parse(Session["idChemSkaldiste"].ToString());
             int quantitySkl = int.Parse(Session["quantitySkladiste"].ToString());
             int quantity = int.Parse(txtPrenesi.Text);
+
             if (quantitySkl - quantity < 0)
                 MessageBox.Show("Nema dovoljno zaliha u skladištu");
 
@@ -209,7 +247,7 @@ namespace APPEK2
                     MessageBox.Show("Dodano je još " + quantity + " mjernih jedinica " + nazivChem);
 
                     dbConnect.Insert(String.Format("INSERT INTO Dashboard (note, date, ID_prijava) VALUES ('{0}', '{1}', {2})",
-                                                    "Preneseno je " + quantity + " komada " + nazivChem + " u " + Session["OdabraniLab"] + " ",
+                                                    "Preneseno je " + quantity + " komada " + nazivChem + " iz skladišta u " + Session["OdabraniLab"] + " ",
                                                     FormatDateForMySQL(DateTime.Now),
                                                     korisnik.IdKorisnik));
                 }

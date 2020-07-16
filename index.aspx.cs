@@ -33,7 +33,12 @@ namespace APPEK2
             if (!(bool)Session["admin"])
             {
                 Unos.Visible = false;
+                chemicals.Visible = false;
                 register.Visible = false;
+            }
+            else
+            {
+                labos.Visible = false;
             }
 
             podaci.HeaderRow.Cells[0].Text = "Označi";
@@ -65,7 +70,6 @@ namespace APPEK2
                 naziv = "";
 
             return naziv;
-
         }
 
         public IQueryable<APPEK2.Models.Dashboard> podaci_GetData()

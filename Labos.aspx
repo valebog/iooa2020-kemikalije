@@ -25,7 +25,7 @@
         <div class="wrapper">
             <div class="content-wrapper">
                 <div class="content">
-                    <h2> - OBAVIJESTI - </h2>
+                    <h2> - KEMIKALIJE - </h2>
                         <asp:Panel ID="Panel2" runat="server">
                             <asp:Panel ID="stalak" runat="server" CssClass="dashboard">
                                 <asp:GridView ID="podaci" runat="server"

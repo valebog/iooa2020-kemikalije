@@ -13,6 +13,24 @@ namespace APPEK2 {
     public partial class index {
         
         /// <summary>
+        /// chemicals control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl chemicals;
+        
+        /// <summary>
+        /// labos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl labos;
+        
+        /// <summary>
         /// register control.
         /// </summary>
         /// <remarks>
@@ -20,6 +38,15 @@ namespace APPEK2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl register;
+        
+        /// <summary>
+        /// odjava control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl odjava;
         
         /// <summary>
         /// form1 control.

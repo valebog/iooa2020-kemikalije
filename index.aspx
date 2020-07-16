@@ -15,10 +15,10 @@
     <div class="navbar">
 		<ul>
 			<li class="naslovna"><a href="index.aspx"> Naslovna </a></li>
-			<li class="kemikalije"><a href="#01"> Skladište </a></li>
-            <li class="laboratorij"><a href="#02"> Laboratorij </a></li>
+			<li id="chemicals" class="kemikalije" runat="server"><a href="Skladiste.aspx"> Skladište </a></li>
+            <li id="labos" class="laboratorij" runat="server"><a href="Labos.aspx"> Laboratorij </a></li>
 			<li id="register" class="registracija" runat="server"><a href="registracija.aspx"> Registracija </a></li>
-			<li class="odjava"><a href="#02"> Odjava </a></li>
+            <li id="odjava" class="registracija" runat="server"><a href="prijava.aspx"> Odjava </a></li>
 		</ul>
 	</div>
         <br />
@@ -31,14 +31,14 @@
                     <asp:Panel ID="Panel2" runat="server">
                         <asp:Panel ID="pano" runat="server" CssClass="dashboard">
                             <asp:GridView ID="podaci" runat="server"
-                            ItemType ="APPEK2.Models.Dashboard"
-                            SelectMethod="podaci_GetData"
-                            OnSelectedIndexChanged ="podaci_SelectedIndexChanged"
-                            AutoGenerateSelectButton="true">
+                                ItemType ="APPEK2.Models.Dashboard"
+                                SelectMethod="podaci_GetData"
+                                OnSelectedIndexChanged ="podaci_SelectedIndexChanged"
+                                AutoGenerateSelectButton="true">
 
-                            <SelectedRowStyle backcolor="LightCyan"
-                            forecolor="DarkBlue"
-                            font-bold="true"/>
+                                <SelectedRowStyle backcolor="LightCyan"
+                                forecolor="DarkBlue"
+                                font-bold="true"/>
                             </asp:GridView> 
 
                             <div class="calendar">

@@ -17,7 +17,6 @@
 		<ul>
 			<li class="naslovna"><a href="index.aspx"> Naslovna </a></li>
 			<li id="chemicals" class="kemikalije" runat="server"><a href="Skladiste.aspx"> Skladište </a></li>
-            <li id="labos" class="laboratorij" runat="server"><a href="Labos.aspx"> Laboratorij </a></li>
 			<li id="register" class="registracija" runat="server"><a href="registracija.aspx"> Registracija </a></li>
             <li id="odjava" runat="server"><a href="prijava.aspx"> Odjava </a></li>
 		</ul>
@@ -28,7 +27,7 @@
         <div class="wrapper">
             <div class="content-wrapper">
                 <div class="content">
-                    <h2> - OBAVIJESTI - </h2>
+                    <h2> - KEMIKALIJE - </h2>
                         <asp:Panel ID="Panel" runat="server">
                             <asp:Panel ID="vitrina" runat="server">
                                 <asp:GridView ID="podaci" runat="server"
